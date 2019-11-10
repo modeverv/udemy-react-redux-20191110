@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { tsPropertySignature } from '@babel/types'
+import PropTypes from 'prop-types'
 
 /*
 class App extends Component {
@@ -44,12 +44,17 @@ const App = () => {
    }
   </div>
 }
-// 子供へ向かってデータを送り込んでいく
+// 子孫へ向かってデータを送り込んでいく
 const User = (props) => {
   return <p>I'm {props.name}, {props.age} yeas old.</p>
 }
 
-User.defaultProps = {
-  age: 100
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number/*.isRequired*/
 }
+ 
+//User.defaultProps = {
+//  age: 100
+//}
 export default App;
