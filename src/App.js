@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-
+/*
 class App extends Component {
   render(){
     //return <div>Hello world</div>;
@@ -24,5 +24,18 @@ class App extends Component {
     return dom5
   }
 }
+*/
+const App = () => {
+//  return <div>!!!!</div>
+  return <div>
+  <Cat/>
+  <Cat/>
+  <Cat/>
+  <Cat/>      
+  </div>
+}
 
+const Cat = () => {
+  return <p>nyaa</p>
+}
 export default App;
