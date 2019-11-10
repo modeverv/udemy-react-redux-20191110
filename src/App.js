@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { tsPropertySignature } from '@babel/types'
 
 /*
 class App extends Component {
@@ -26,16 +27,29 @@ class App extends Component {
 }
 */
 const App = () => {
+  const profiles = [
+    {name: "Jiro1", age: 1},
+    {name: "Jiro2", age: 2},
+    {name: "Jiro3"},    
+  ]
 //  return <div>!!!!</div>
   return <div>
-  <Cat/>
-  <Cat/>
-  <Cat/>
-  <Cat/>      
+   <User name={"Taro1"} age={1}/>
+   <User name={"Taro2"} age={2}/>
+   <User name={"Taro3"} age={3}/>
+   {
+     profiles.map((p,index) => {
+       return <User name={p.name} age={p.age} key={index}/>
+     })
+   }
   </div>
 }
+// 子供へ向かってデータを送り込んでいく
+const User = (props) => {
+  return <p>I'm {props.name}, {props.age} yeas old.</p>
+}
 
-const Cat = () => {
-  return <p>nyaa</p>
+User.defaultProps = {
+  age: 100
 }
 export default App;
