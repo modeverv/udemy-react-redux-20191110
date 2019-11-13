@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 import {postEvent} from '../actions'
-import _ from 'lodash'
 import {Link } from 'react-router-dom'
 import {Field, reduxForm} from 'redux-form'
 
@@ -28,7 +27,7 @@ class EventsNew extends Component {
 
 
   render() {
-    const { handleSubmit} = this.props
+    const { handleSubmit, pristine, submitting} = this.props
     return (
     <React.Fragment>
     <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -39,7 +38,7 @@ class EventsNew extends Component {
       <Field label="Body" name="body" type="text" component={this.renderField}/>      
       </div>
       <div>
-        <input type="submit" value="Submit" disabled={false}/>
+        <input type="submit" value="Submit" disabled={pristine || submitting}/>
         <Link to="/">Cancel</Link>        
       </div>
     </form>
