@@ -11,13 +11,16 @@ import EventsShow from './components/events_show';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter,Route, Switch} from 'react-router-dom'
 import { composeWithDevTools} from 'redux-devtools-extension'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 const enhancer = process.env.NODE_ENV === 'development' ?
     composeWithDevTools(applyMiddleware(thunk)) : applyMiddleware(thunk)
 const store = createStore(reducer, enhancer)
 
 
+
 ReactDOM.render(
+<MuiThemeProvider>
 <Provider store={store}>
 <BrowserRouter>
 <Switch>
@@ -28,6 +31,7 @@ ReactDOM.render(
 </Switch>
 </BrowserRouter>
 </Provider>
+</MuiThemeProvider>
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
